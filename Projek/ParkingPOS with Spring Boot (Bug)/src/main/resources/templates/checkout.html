@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Parking Check-out</title>
+</head>
+<body>
+    <h2>Parking Check-out</h2>
+    <form action="#" th:action="@{/checkout}" th:object="${ticket}" method="post">
+        <label for="plateNumber">Vehicle Plate Number:</label>
+        <input type="text" id="plateNumber" th:field="*{plateNumber}" required>
+        <button type="submit">Check-out</button>
+    </form>
+    <p th:if="${checkedOutTicket != null}">Check-in Time: <span th:text="${checkedOutTicket.checkInTime}"></span></p>
+    <p th:if="${checkedOutTicket != null}">Check-out Time: <span th:text="${checkedOutTicket.checkOutTime}"></span></p>
+    <p th:if="${checkedOutTicket != null}">Total Price: <span th:text="${calculateTotalPrice(checkedOutTicket)}"></span></p>
+    <p th:text="${error}" style="color: red"></p>
+</body>
+</html>

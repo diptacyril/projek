@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Parking Check-in</title>
+</head>
+<body>
+    <h2>Parking Check-in</h2>
+    <form action="#" th:action="@{/checkin}" th:object="${ticket}" method="post">
+        <label for="plateNumber">Vehicle Plate Number:</label>
+        <input type="text" id="plateNumber" th:field="*{plateNumber}" required>
+        <button type="submit">Check-in</button>
+    </form>
+    <p th:text="${message}" style="color: green"></p>
+    <p th:text="${error}" style="color: red"></p>
+</body>
+</html>
+
